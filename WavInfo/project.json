@@ -1,0 +1,9 @@
+{
+    "frameworks": {
+        "net46": {
+            "dependencies": {
+                "NAudio": "1.8.0"
+            }
+        }
+    }
+}
