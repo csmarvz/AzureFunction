@@ -21,6 +21,6 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 
     return req.CreateResponse(HttpStatusCode.OK, new
     {
-        greeting = $"Hello {data.first} {data.last}!"
+        greeting = $"Hello people {data.first} {data.last}!"
     });
 }
