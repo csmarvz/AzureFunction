@@ -1,0 +1,19 @@
+{
+  "bindings": [
+    {
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "orders",
+      "connection": "AzureWebJobsDashboard"
+    },
+    {
+      "type": "blob",
+      "name": "outputBlob",
+      "path": "licenses/{rand-guid}.lic",
+      "connection": "AzureWebJobsDashboard",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
