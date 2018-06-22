@@ -6,6 +6,13 @@ using System;
 using System.Net;
 using System.Net.Mail;
 
+public class Data
+{
+    public bool IsImportant { get; set; }
+    public string FromEmail { get; set; }
+    public string ToEmail { get; set; }
+}
+
 public static void Run(JObject eventGridEvent, TraceWriter log)
 {
     log.Info(eventGridEvent.ToString(Formatting.Indented));
@@ -13,11 +20,11 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
     
     // do some data validation... skipped this for demo purpose only.
     // if validation failes -> HttpStatusCode.BadRequest should be returned as HTTP Status
-    dynamic data = ((dynamic)eventGridEvent).data;
+    var data = ((Data)eventGridEvent).data;
 
-    bool isImportantEmail = bool.Parse(data.isImportant.ToString());
-    string fromEmail = data.fromEmail;
-    string toEmail = data.toEmail;
+    bool isImportantEmail = bool.Parse(data.IsImportant.ToString());
+    string fromEmail = data.FromEmail;
+    string toEmail = data.ToEmail;
     int smtpPort = 25;
     bool smtpEnableSsl = true;
     string smtpHost = "smtp.mailtrap.io"; // your smtp host
