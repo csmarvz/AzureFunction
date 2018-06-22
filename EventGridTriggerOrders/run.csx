@@ -20,7 +20,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
     
     // do some data validation... skipped this for demo purpose only.
     // if validation failes -> HttpStatusCode.BadRequest should be returned as HTTP Status
-    var data = ((Data)eventGridEvent).data;
+    var data = eventGridEvent.data.ToObject<Data>();
 
     bool isImportantEmail = bool.Parse(data.IsImportant.ToString());
     string fromEmail = data.FromEmail;
